@@ -11,3 +11,6 @@
 **Duration:** 16 Weeeks
 
 **Mentor:** Neela Santhosh Kumar
+
+# Output
+![image](https://github.com/user-attachments/assets/39c63a54-f779-4543-9632-fb92f0c0c753)
