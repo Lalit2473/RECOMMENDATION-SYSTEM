@@ -1,7 +1,6 @@
 import streamlit as st
 import nbformat
 from nbconvert import PythonExporter
-import os
 
 # Streamlit page setup
 st.set_page_config(page_title="SVD Recommender", layout="wide")
@@ -27,10 +26,11 @@ exec(notebook_code, exec_globals)
 # Access recommendation results from executed notebook
 top_n = exec_globals["top_n"]
 
-# Add user selection dropdown
+# Add user selection dropdown with default user pre-selected (e.g., 854)
 st.subheader("👤 Choose a User ID to View Recommendations")
 user_ids = sorted(top_n.keys())
-selected_user = st.selectbox("Select User ID", user_ids)
+default_user = 854 if 854 in user_ids else user_ids[0]  # Use 854 if available, else first
+selected_user = st.selectbox("Select User ID", user_ids, index=user_ids.index(default_user))
 
 # Show top 5 recommendations for selected user
 if selected_user:
